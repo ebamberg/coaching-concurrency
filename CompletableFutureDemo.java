@@ -11,6 +11,8 @@ public class CompletableFutureDemo {
 
 public void exceptional() {
     
+    CompletableFuture<Integer> completableFuture =
+        
     CompletableFuture.supplyAsync( () -> {System.out.println("Hello World"); return 1; })
         .exceptional( throwable-> {
                                     throwable.printStackTrace(); 
@@ -20,7 +22,7 @@ public void exceptional() {
     
       Thread.sleep(3000);//let the stages complete
       System.out.println("-- checking exceptions --");
-      boolean b = completableFuture.isCompletedExceptionally();
+      boolean b = completableFuture.isCompletedExceptionally();   // will be false
       System.out.println("completedExceptionally: " + b);
       System.out.println("-- getting results --");
       int result = completableFuture.get();
